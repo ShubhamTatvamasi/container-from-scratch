@@ -40,6 +40,8 @@ func child() {
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 
+	must(syscall.Chroot("/home/rootfs"))
+	must(os.Chdir("/"))
 	must(cmd.Run())
 }
 
